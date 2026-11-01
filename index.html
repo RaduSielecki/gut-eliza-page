@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gut — Eliza’s page</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&amp;family=Source+Sans+3:wght@400;600;700;800&amp;display=swap">
+<style>
+body{margin:0;background:#FBF7EF}
+a{color:#7A2418}a:hover{color:#5A180F}
+</style>
+</helmet>
+<div id="top" style="background: #FBF7EF; color: #22201C; font-family: 'Source Sans 3', system-ui, sans-serif; font-size: 17px; line-height: 1.55;">
+
+<div style="position: sticky; top: 0; z-index: 10; background: #22201C; color: #FFFFFF;">
+<div style="max-width: 1120px; margin: 0 auto; padding: 10px 24px; display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: center; justify-content: center; text-align: center; font-size: 15px;">
+<span><span style="font-weight: 800; color: #FFE45C;">Only Today (10/31/2026): Get 78% Off Your Gut Remedies.</span> Click the button to claim your discount and free gifts. Use coupon <span style="font-weight: 800; letter-spacing: 0.06em; border: 1px dashed #FFE45C; padding: 1px 6px; border-radius: 4px;">X24BL44</span> today only.</span>
+<a href="#offer" style="background: #1F6F2B; color: #FFE45C; font-weight: 800; text-transform: uppercase; letter-spacing: 0.03em; text-decoration: none; padding: 8px 16px; border-radius: 999px; min-height: 40px; box-sizing: border-box; display: inline-flex; align-items: center;">Jump to offer</a>
+</div>
+</div>
+
+<header style="border-bottom: 1px solid #E6DDCB; background: #FFFFFF;">
+<div style="max-width: 1120px; margin: 0 auto; padding: 12px 24px; display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: center; justify-content: space-between;">
+<a href="#top" style="font-family: 'Libre Caslon Text', Georgia, serif; font-size: 18px; font-weight: 700; color: #22201C; text-decoration: none;">The Forgotten Home Apothecary</a></div>
+</header>
+
+<main>
+<sc-for list="{{sections}}" as="s" hint-placeholder-count="14">
+
+<sc-if value="{{s.isHero}}" hint-placeholder-val="{{ true }}">
+<section aria-labelledby="hero-title" style="max-width: 880px; margin: 0 auto; padding: 48px 24px 56px; display: flex; flex-direction: column; gap: 24px; align-items: center; text-align: center;">
+<h1 id="hero-title" style="margin: 0; font-family: 'Libre Caslon Text', Georgia, serif; font-weight: 700; font-size: 46px; line-height: 1.12; letter-spacing: -0.01em;">The Most Powerful Remedies for Your Gut You Need to Know</h1>
+<p style="margin: 0; font-size: 21px; font-weight: 700; color: #7A2418;">Last Books Available. Get Yours Before They’re All Gone!</p>
+<div style="width: 100%; aspect-ratio: 16 / 9; background: #22201C; border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; color: #F2EBDD; padding: 24px; box-sizing: border-box;">
+<button type="button" aria-label="Play the video" style="width: 80px; height: 80px; border-radius: 50%; border: 0; background: #FBF7EF; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+<svg aria-hidden="true" width="30" height="30" viewBox="0 0 24 24" fill="#22201C"><path d="M8 5v14l11-7z"></path></svg>
+</button>
+<div style="font-size: 15px; max-width: 32em;">[VSL leading with the {{vsl.label}} recipe, p. {{vsl.page}}]</div>
+</div>
+<div style="display: flex; gap: 14px; align-items: center; text-align: left; max-width: 720px;">
+<img src="./assets/b90f866c987fdd82c37f9332daeff87c.png" alt="" style="width: 56px; height: 56px; border-radius: 50%; object-fit: cover; flex: 0 0 auto;">
+<p style="margin: 0; font-size: 17px; color: #5C554B;">Written by <span style="font-weight: 700; color: #22201C;">Dr. Nicole Apelian</span>, an herbalist with over 30 years of experience, who wants to bring the apothecaries of the past into the house of each person who seeks a natural way of healing.</p>
+</div>
+<ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; text-align: left; max-width: 720px;">
+<sc-for list="{{usps}}" as="u" hint-placeholder-count="4">
+<li style="display: flex; gap: 12px; align-items: flex-start;">
+<svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1F6F2B" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; margin-top: 2px;"><path d="M5 12l5 5L20 7"></path></svg>
+<span><span style="font-weight: 700;">{{u.lead}}</span> — {{u.rest}}</span>
+</li>
+</sc-for>
+</ul>
+<a href="#offer" style="{{cta}}">Get my copy + bonuses</a>
+<div style="display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; justify-content: center; font-size: 15px; color: #5C554B;">
+<span style="display: inline-flex; gap: 6px; align-items: center;"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5C554B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"></path><circle cx="7" cy="17.5" r="1.5"></circle><circle cx="17" cy="17.5" r="1.5"></circle></svg>Fast Global Shipping</span>
+<span aria-hidden="true">|</span>
+<span style="display: inline-flex; gap: 6px; align-items: center;">Stock:
+<span role="img" aria-label="Stock low, 1 of 5" style="display: inline-flex; gap: 3px;"><span style="width: 12px; height: 12px; background: #B3261E;"></span><span style="width: 12px; height: 12px; border: 1px solid #B3A999; box-sizing: border-box;"></span><span style="width: 12px; height: 12px; border: 1px solid #B3A999; box-sizing: border-box;"></span><span style="width: 12px; height: 12px; border: 1px solid #B3A999; box-sizing: border-box;"></span><span style="width: 12px; height: 12px; border: 1px solid #B3A999; box-sizing: border-box;"></span></span>
+<span style="font-weight: 700; color: #B3261E;">low</span></span>
+</div>
+</section>
+</sc-if>
+
+<sc-if value="{{s.isCred}}" hint-placeholder-val="{{ true }}">
+<section aria-label="Readers and rating" style="background: #FFFFFF; border-top: 1px solid #E6DDCB; border-bottom: 1px solid #E6DDCB;">
+<div style="max-width: 1120px; margin: 0 auto; padding: 28px 24px; display: flex; flex-wrap: wrap; gap: 12px 28px; align-items: center; justify-content: center; text-align: center;">
+<div style="display: flex; gap: 10px; align-items: center;">
+<span role="img" aria-label="4.8 out of 5 stars" style="color: #E0A100; font-size: 26px; letter-spacing: 2px;">★★★★★</span>
+<span style="font-weight: 700;">4.8 on Trustpilot</span>
+</div>
+<div style="font-weight: 800; font-size: 20px; letter-spacing: 0.02em; text-transform: uppercase;">500,000+ people discovering powerful home remedies for their gut</div>
+</div>
+</section>
+</sc-if>
+
+<sc-if value="{{s.isVideoT}}" hint-placeholder-val="{{ true }}">
+<section aria-labelledby="vt-title" style="max-width: 1120px; margin: 0 auto; padding: 64px 24px; display: flex; flex-direction: column; gap: 28px; align-items: center;">
+<h2 id="vt-title" style="margin: 0; font-family: 'Libre Caslon Text', Georgia, serif; font-weight: 700; font-size: 34px; text-align: center;">The Remedies Secrets People Can’t Stop Sharing</h2>
+<div style="width: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+<sc-for list="{{four}}" as="v" hint-placeholder-count="4">
+<div style="aspect-ratio: 9 / 16; max-height: 380px; background: #2A2723; border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; color: #F2EBDD; text-align: center; padding: 16px; box-sizing: border-box; font-size: 14px;">
+<button type="button" aria-label="Play testimonial video" style="width: 54px; height: 54px; border-radius: 50%; border: 0; background: #FBF7EF; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="#22201C"><path d="M8 5v14l11-7z"></path></svg>
+</button>
+<span>[Real customer video]</span>
+</div>
+</sc-for>
+</div>
+<a href="#offer" style="{{cta}}">Get my copy + bonuses</a>
+</section>
+</sc-if>
+
+<sc-if value="{{s.isMenu}}" hint-placeholder-val="{{ true }}">
+<section aria-labelledby="menu-title" style="background: #F2EBDD; border-top: 1px solid #E6DDCB; border-bottom: 1px solid #E6DDCB;">
+<div style="max-width: 1120px; margin: 0 auto; padding: 64px 24px; display: flex; flex-direction: column; gap: 40px;">
+<div style="display: flex; flex-direction: column; gap: 16px; align-items: center; text-align: center;">
+<div style="font-size: 14px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #7A2418;">Gut issues menu</div>
+<p style="margin: 0; font-size: 20px; font-weight: 600;">Click on the gut issue below to find the remedy you’ve been looking for!</p>
+<nav aria-label="Gut issues" style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+<sc-for list="{{issues}}" as="i" hint-placeholder-count="7">
+<a href="{{i.href}}" style="background: #7A2418; color: #FFFFFF; font-weight: 700; text-decoration: none; padding: 12px 18px; border-radius: 6px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center; box-shadow: 0 2px 0 #4A140C;">{{i.label}}</a>
+</sc-for>
+</nav>
+</div>
+<h2 id="menu-title" style="margin: 0; font-family: 'Libre Caslon Text', Georgia, serif; font-weight: 700; font-size: 32px; text-align: center;">Here Are Just Some of the Powerful Gut Remedies You Will Find in Your New Apothecary</h2>
+<sc-for list="{{issues}}" as="i" hint-placeholder-count="7">
+<div id="{{i.id}}" style="display: flex; flex-direction: column; gap: 18px; scroll-margin-top: 72px;">
+<h3 style="margin: 0; font-size: 15px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #7A2418; display: flex; gap: 12px; align-items: center;">{{i.label}}<span aria-hidden="true" style="flex: 1 1 auto; height: 1px; background: #D9CDB6;"></span></h3>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+<sc-for list="{{i.recipes}}" as="r" hint-placeholder-count="2">
+<article style="background: #FFFFFF; border: 1px solid #E6DDCB; border-radius: 10px; overflow: hidden; display: flex; flex-direction: column;">
+<img src="{{r.img}}" alt="{{r.alt}}" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block;">
+<div style="padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 10px;">
+<h4 style="margin: 0; font-family: 'Libre Caslon Text', Georgia, serif; font-size: 22px; line-height: 1.25;">{{r.title}}</h4>
+<p style="margin: 0; color: #4A443B; white-space: pre-line;">{{r.body}}</p>
+<div style="font-size: 14px; font-weight: 700; color: #7A2418;">{{r.page}}</div>
+</div>
+</article>
+</sc-for>
+</div>
+</div>
+</sc-for>
+</div>
+</section>
+</sc-if>
+
+<sc-if value="{{s.isMore}}" hint-placeholder-val="{{ true }}">
+<section aria-labelledby="more-title" style="max-width: 1120px; margin: 0 auto; padding: 64px 24px; display: flex; flex-direction: column; gap: 24px;">
+<h2 id="more-title" style="margin: 0; font-family: 'Libre Caslon Text', Georgia, serif; font-weight: 700; font-size: 32px; text-align: center;">And that’s not all! Inside, you will also discover:</h2>
+<ul style="list-style: none; margin: 0; padding: 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; background: #3B2A1E; border-radius: 10px;">
+<sc-for list="{{more}}" as="m" hint-placeholder-count="24">
+<li style="background: #F6EEDC; border: 2px solid #C9A86A; border-radius: 6px; padding: 12px 14px; font-family: 'Libre Caslon Text', Georgia, serif; font-size: 16px; text-align: center; display: flex; align-items: center; justify-content: center; min-height: 64px; box-sizing: border-box;">{{m}}</li>
+</sc-for>
+</ul>
+</section>
+</sc-if>
+
+<sc-if value="{{s.isInside}}" hint-placeholder-val="{{ true }}">
+<section aria-labelledby="inside-title" style="background: #FFFFFF; border-top: 1px solid #E6DDCB; border-bottom: 1px solid #E6DDCB;">
+<div style="max-width: 1120px; margin: 0 auto; padding: 72px 24px; display: flex; flex-direction: column; gap: 56px;">
+<h2 id="inside-title" style="margin: 0; font-family: 'Libre Caslon Text', Georgia, serif; font-weight: 700; font-size: 34px; text-align: center;">Here is What You Will Receive Inside Your New Apothecary</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 32px 48px; align-items: center;">
+<img src="./assets/e3f68ac60618fd0442473ae110b55d28.jpg" alt="The book open at its apothecary contents spread: remedies shown as labelled jars on shelves" style="flex: 1 1 420px; min-width: 0; max-width: 100%; aspect-ratio: 418 / 313; object-fit: cover; border-radius: 10px;">
+<div style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 14px;">
+<p style="margin: 0; font-size: 19px;"><span style="font-weight: 700;">Unlike others, this book is very easy to use!</span> The first thing you’ll see when you open the book is your new Apothecary. Here you’ll find all the 250 remedies, organized on shelves by body systems.</p>
+<p style="margin: 0; color: #4A443B;">Each page of the table of contents displays the remedies found inside the book, and the page you’re going to find it on.</p>
+</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 32px 48px; align-items: flex-start;">
+<img src="./assets/c8ec6afa3e4e669e98dd96667c6911bf.jpg" alt="Book spread, pages 68 and 69. Right: Ginger and ACV Belly Deflator" style="flex: 3 1 560px; min-width: 0; max-width: 100%; aspect-ratio: 2400 / 1496; border-radius: 6px; box-shadow: 0 24px 40px -28px rgba(34,32,28,0.55);">
+<div style="flex: 2 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 12px;">
+<h3 style="margin: 0; font-size: 15px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #7A2418;">How the book works · p. 69</h3>
+<ol style="margin: 0; padding: 0; list-style: none; display: grid; gap: 8px;">
+<sc-for list="{{features}}" as="f" hint-placeholder-count="10">
+<li style="display: flex; gap: 10px; align-items: baseline;"><span style="flex: 0 0 26px; height: 26px; border-radius: 50%; background: #7A2418; color: #FFFFFF; font-size: 13px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center;">{{f.n}}</span><span>{{f.label}}</span></li>
+</sc-for>
+</ol>
+</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 32px 48px; align-items: center;">
+<img src="./assets/f50f3af8cd238b2e325197d1e1a3fb76.jpg" alt="Herbal Remedies Map: a body diagram with remedy jars on shelves around it" style="flex: 1 1 340px; min-width: 0; max-width: 420px; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 10px;">
+<div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 14px;">
+<h3 style="margin: 0; font-size: 15px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #7A2418;">On the Digestive System shelf</h3>
+<ul style="list-style: none; margin: 0; padding: 0; border-top: 1px solid #E6DDCB;">
+<sc-for list="{{shelf}}" as="r" hint-placeholder-count="8">
+<li style="display: flex; gap: 12px; align-items: baseline; padding: 9px 0; border-bottom: 1px solid #E6DDCB;"><span style="flex: 1 1 auto;">{{r.title}}</span><span style="color: #5C554B; font-size: 15px; white-space: nowrap;">p. {{r.page}}</span></li>
+</sc-for>
+</ul>
+<p style="margin: 0;">There, you will find step-by-step instructions, color pictures, measurements and serving size guidance.</p>
+<p style="margin: 0; color: #4A443B;">Follow the step-by-step guide to prepare each remedy at home. The intuitive layout makes it easy to quickly find the recipe you’re looking for and prepare it in your own kitchen.</p>
+</div>
+</div>
+</div>
+</section>
+</sc-if>
+
+<sc-if value="{{s.isNotice}}" hint-placeholder-val="{{ true }}">
+<section aria-labelledby="notice-title" style="max-width: 880px; margin: 0 auto; padding: 72px 24px; display: flex; flex-direction: column; gap: 28px;">
+<h2 id="notice-title" style="margin: 0; font-family: 'Libre Caslon Text', Georgia, serif; font-weight: 700; font-size: 34px; text-align: center;">What Many People Notice</h2>
+<ol style="list-style: none; margin: 0; padding: 0 0 0 28px; border-left: 2px solid #D9CDB6; display: flex; flex-direction: column; gap: 22px;">
+<sc-for list="{{timeline}}" as="t" hint-placeholder-count="4">
+<li style="position: relative; background: #FFFFFF; border: 1px solid #E6DDCB; border-radius: 8px; padding: 16px 20px;">
+<span aria-hidden="true" style="position: absolute; left: -41px; top: 16px; width: 24px; height: 24px; border-radius: 50%; background: #1F6F2B; display: flex; align-items: center; justify-content: center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"></path></svg></span>
+<div style="font-weight: 800; color: #7A2418;">{{t.when}}</div>
+<div>{{t.text}}</div>
+</li>
+</sc-for>
+</ol>
+</section>
+</sc-if>
+
+<sc-if value="{{s.isFb}}" hint-placeholder-val="{{ true }}">
+<section aria-labelledby="fb-title" style="background: #F2EBDD; border-top: 1px solid #E6DDCB; border-bottom: 1px solid #E6DDCB;">
+<div style="max-width: 1120px; margin: 0 auto; padding: 64px 24px; display: flex; flex-direction: column; gap: 24px; align-items: center;">
+<h2 id="fb-title" style="margin: 0; font-family: 'Libre Caslon Text', Georgia, serif; font-weight: 700; font-size: 34px; text-align: center;">What Customers Are Saying About These Remedies</h2>
+<div style="width: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px;">
+<sc-for list="{{six}}" as="t" hint-placeholder-count="6">
+<div style="background: #FFFFFF; border: 1px solid #E6DDCB; border-radius: 10px; padding: 16px 18px; display: flex; gap: 12px; align-items: flex-start;">
+<span aria-hidden="true" style="flex: 0 0 40px; height: 40px; border-radius: 50%; background: #E6DDCB;"></span>
+<div style="display: flex; flex-direction: column; gap: 4px; font-size: 15px;">
+<div style="font-weight: 700;">[Reviewer name] <span style="font-weight: 400; color: #5C554B;">· Facebook</span></div>
+<div style="color: #E0A100;">[Star rating]</div>
+<div style="color: #4A443B;">[Verbatim review text, unedited]</div>
+</div>
+</div>
+</sc-for>
+</div>
+<a href="#offer" style="{{cta}}">Get my copy + bonuses</a>
+</div>
+</section>
+</sc-if>
+
+<sc-if value="{{s.isHome}}" hint-placeholder-val="{{ true }}">
+<section aria-labelledby="home-title" style="max-width: 880px; margin: 0 auto; padding: 72px 24px; display: flex; flex-direction: column; gap: 24px;">
+<h2 id="home-title" style="margin: 0; font-family: 'Libre Caslon Text', Georgia, serif; font-weight: 700; font-size: 34px; text-align: center;">What Happens When You Make Your Own Remedies at Home</h2>
+<ul style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0 32px;">
+<sc-for list="{{homeRows}}" as="h" hint-placeholder-count="11">
+<li style="display: flex; gap: 12px; align-items: center; padding: 12px 0; border-bottom: 1px solid #E6DDCB;">
+<span aria-hidden="true" style="flex: 0 0 26px; height: 26px; border-radius: 6px; background: #1F6F2B; display: flex; align-items: center; justify-content: center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"></path></svg></span>
+<span style="font-weight: 600;">{{h}}</span>
+</li>
+</sc-for>
+</ul>
+</section>
+</sc-if>
+
+<sc-if value="{{s.isAmazon}}" hint-placeholder-val="{{ true }}">
+<section aria-labelledby="amz-title" style="background: #FFFFFF; border-top: 1px solid #E6DDCB; border-bottom: 1px solid #E6DDCB;">
+<div style="max-width: 1120px; margin: 0 auto; padding: 64px 24px; display: flex; flex-direction: column; gap: 24px;">
+<h2 id="amz-title" style="margin: 0; font-family: 'Libre Caslon Text', Georgia, serif; font-weight: 700; font-size: 34px; text-align: center;">See What The Forgotten Home Apothecary Can Do For You</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px;">
+<sc-for list="{{six}}" as="t" hint-placeholder-count="6">
+<div style="border: 1px solid #E6DDCB; border-radius: 10px; padding: 18px; display: flex; flex-direction: column; gap: 6px; font-size: 15px;">
+<div style="font-weight: 700;">[Reviewer name] <span style="font-weight: 400; color: #5C554B;">· Amazon, verified purchase</span></div>
+<div style="color: #E0A100;">[Star rating]</div>
+<div style="color: #4A443B;">[Verbatim review text, unedited]</div>
+</div>
+</sc-for>
+</div>
+</div>
+</section>
+</sc-if>
+
+<sc-if value="{{s.isBonuses}}" hint-placeholder-val="{{ true }}">
+<section aria-labelledby="bonus-title" style="max-width: 1040px; margin: 0 auto; padding: 72px 24px; display: flex; flex-direction: column; gap: 36px;">
+<h2 id="bonus-title" style="margin: 0; font-family: 'Libre Caslon Text', Georgia, serif; font-weight: 700; font-size: 34px; text-align: center;">+ Four Life-Changing Gifts and 24/7 Assistance with Everything You Need</h2>
+<sc-for list="{{bonuses}}" as="b" hint-placeholder-count="4">
+<div style="display: flex; flex-direction: column; gap: 16px;">
+<sc-if value="{{b.lead}}" hint-placeholder-val="{{ false }}">
+<p style="margin: 0; font-weight: 700; color: #7A2418; text-align: center;">{{b.lead}}</p>
+</sc-if>
+<div style="display: flex; flex-wrap: wrap; gap: 24px 40px; align-items: center;">
+<img src="{{b.src}}" alt="{{b.title}}" style="flex: 0 1 260px; min-width: 0; max-width: 100%; aspect-ratio: {{b.ratio}}; object-fit: contain;">
+<div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 8px;">
+<h3 style="margin: 0; font-family: 'Libre Caslon Text', Georgia, serif; font-size: 24px;">{{b.title}}</h3>
+<p style="margin: 0; color: #4A443B;">{{b.text}}</p>
+</div>
+</div>
+</div>
+</sc-for>
+<p style="margin: 0; font-size: 18px; text-align: center; max-width: 46em; align-self: center;">The Forgotten Home Apothecary was printed in a limited edition, with color pictures, containing 250+ remedies that can help you and your family. Now you can find all the remedies you need for the issues you are interested in in just one place. Just scroll down and click on the button below to get your own copy.</p>
+</section>
+</sc-if>
+
+<sc-if value="{{s.isOffer}}" hint-placeholder-val="{{ true }}">
+<section id="offer" aria-labelledby="offer-title" style="background: #3B2A1E; color: #FBF7EF; scroll-margin-top: 60px;">
+<div style="max-width: 1040px; margin: 0 auto; padding: 72px 24px; display: flex; flex-wrap: wrap; gap: 40px 56px; align-items: center;">
+<img src="./assets/73de76c696096d4a6375e702736ed97b.jpg" alt="Two copies of The Forgotten Home Apothecary, stacked" style="flex: 0 1 360px; min-width: 0; max-width: 100%; aspect-ratio: 960 / 780; object-fit: cover; border-radius: 10px;">
+<div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 18px;">
+<h2 id="offer-title" style="margin: 0; font-family: 'Libre Caslon Text', Georgia, serif; font-weight: 700; font-size: 32px;">Everything you get today</h2>
+<ul style="list-style: none; margin: 0; padding: 0; border-top: 1px solid rgba(251,247,239,0.25);">
+<sc-for list="{{offerRows}}" as="o" hint-placeholder-count="7">
+<li style="display: flex; gap: 16px; align-items: baseline; padding: 9px 0; border-bottom: 1px solid rgba(251,247,239,0.25);">
+<span style="flex: 1 1 auto;">{{o.item}} <span style="font-size: 13px; opacity: 0.75;">{{o.kind}}</span></span>
+<span style="font-size: 15px; opacity: 0.8; white-space: nowrap;">{{o.value}}</span>
+</li>
+</sc-for>
+</ul>
+<div style="display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center;">
+<span style="background: #FFE45C; color: #3B2A1E; font-weight: 800; padding: 6px 12px; border-radius: 6px; letter-spacing: 0.04em;">78% DISCOUNT</span>
+<span style="font-size: 16px; opacity: 0.85;">Total value <span style="text-decoration: line-through;">$173</span> · today $37</span>
+</div>
+<div style="font-family: 'Libre Caslon Text', Georgia, serif; font-weight: 700; font-size: 44px; color: #FFE45C; line-height: 1.1;">You save $136!</div>
+<a href="#" style="{{cta}}">Get my copy + bonuses</a>
+</div>
+</div>
+</section>
+</sc-if>
+
+<sc-if value="{{s.isGuarantee}}" hint-placeholder-val="{{ true }}">
+<section aria-labelledby="guarantee-title" style="max-width: 920px; margin: 0 auto; padding: 72px 24px; display: flex; flex-wrap: wrap; gap: 24px 40px; align-items: center; justify-content: center;">
+<img src="./assets/d22b1a0ebefdc8d204f1a7ffc51c935f.png" alt="60-day money-back guarantee seal" style="width: 180px; max-width: 100%; aspect-ratio: 287 / 254; object-fit: contain;">
+<div style="flex: 1 1 400px; min-width: 0; display: flex; flex-direction: column; gap: 12px;">
+<h2 id="guarantee-title" style="margin: 0; font-family: 'Libre Caslon Text', Georgia, serif; font-weight: 700; font-size: 32px;">Keep-The-Book Money-Back Guarantee</h2>
+<p style="margin: 0;">After you receive your book, you will have a full 60 days to put it to good use and start managing your health naturally. If at any time during those 60 days, you are not COMPLETELY satisfied with your purchase, send us an email or message and we will refund you the price of the book. It’s as simple as that!</p>
+<p style="margin: 0; font-weight: 700;">You can choose to keep the physical book, even if we refund you the full price.</p>
+</div>
+</section>
+</sc-if>
+
+<sc-if value="{{s.isAuthor}}" hint-placeholder-val="{{ true }}">
+<section aria-labelledby="author-title" style="background: #FFFFFF; border-top: 1px solid #E6DDCB; border-bottom: 1px solid #E6DDCB;">
+<div style="max-width: 1120px; margin: 0 auto; padding: 72px 24px; display: flex; flex-direction: column; gap: 32px; align-items: center;">
+<div style="display: flex; flex-wrap: wrap; gap: 32px 56px; align-items: flex-start;">
+<img src="./assets/b90f866c987fdd82c37f9332daeff87c.png" alt="Dr. Nicole Apelian" style="flex: 0 1 300px; width: 300px; max-width: 100%; aspect-ratio: 413 / 573; object-fit: cover; border-radius: 10px;">
+<div style="flex: 1 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 14px;">
+<h2 id="author-title" style="margin: 0; font-family: 'Libre Caslon Text', Georgia, serif; font-weight: 700; font-size: 34px;">About the Author</h2>
+<sc-for list="{{authorParas}}" as="p" hint-placeholder-count="7">
+<p style="margin: 0;">{{p}}</p>
+</sc-for>
+</div>
+</div>
+<a href="#offer" style="{{cta}}">Get my copy + bonuses</a>
+</div>
+</section>
+</sc-if>
+
+<sc-if value="{{s.isFaq}}" hint-placeholder-val="{{ true }}">
+<section aria-labelledby="faq-title" style="max-width: 880px; margin: 0 auto; padding: 72px 24px; display: flex; flex-direction: column; gap: 24px;">
+<h2 id="faq-title" style="margin: 0; font-family: 'Libre Caslon Text', Georgia, serif; font-weight: 700; font-size: 34px; text-align: center;">Frequently Asked Questions</h2>
+<div style="border-top: 1px solid #D9CDB6;">
+<sc-for list="{{faq}}" as="q" hint-placeholder-count="8">
+<div style="border-bottom: 1px solid #D9CDB6;">
+<h3 style="margin: 0;">
+<button type="button" onClick="{{q.toggle}}" aria-expanded="{{q.open}}" style="width: 100%; min-height: 56px; background: none; border: 0; padding: 16px 0; display: flex; gap: 16px; align-items: center; justify-content: space-between; text-align: left; cursor: pointer; font: inherit; font-size: 19px; font-weight: 700; color: #22201C;">
+<span>{{q.q}}</span>
+<span aria-hidden="true" style="font-size: 24px; color: #7A2418; line-height: 1;">{{q.sign}}</span>
+</button>
+</h3>
+<sc-if value="{{q.open}}" hint-placeholder-val="{{ false }}">
+<p style="margin: 0; padding: 0 0 20px; color: #4A443B;">{{q.a}}</p>
+</sc-if>
+</div>
+</sc-for>
+</div>
+</section>
+</sc-if>
+
+</sc-for>
+</main>
+
+<footer style="border-top: 1px solid #E6DDCB; background: #FFFFFF;">
+<div style="max-width: 1120px; margin: 0 auto; padding: 36px 24px 48px; display: flex; flex-wrap: wrap; gap: 12px 32px; justify-content: space-between; font-size: 14px; color: #5C554B;">
+<span>[SELLER LEGAL NAME] · [ADDRESS] · [CONTACT]</span>
+<span style="max-width: 44em;">The remedies are traditional preparations, not medical treatment. Read each recipe’s notes and consult a healthcare provider before use. [Market-specific disclaimers]</span>
+</div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"offerFirst":{"editor":"boolean","default":false,"section":"Entry"},"$preview":{"width":1280,"height":12400}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const st = this.state || {};
+    const offerFirst = this.props.offerFirst ?? false;
+    const vslId = 'deflator';
+
+    const AS_WRITTEN = ['hero', 'cred', 'videoT', 'menu', 'more', 'inside', 'notice', 'fb', 'home', 'amazon', 'bonuses', 'offer', 'guarantee', 'author', 'faq'];
+    const OFFER_FIRST = ['hero', 'offer', 'bonuses', 'guarantee', 'cred', 'videoT', 'menu', 'more', 'inside', 'notice', 'fb', 'home', 'amazon', 'author', 'faq'];
+    const order = offerFirst ? OFFER_FIRST : AS_WRITTEN;
+
+    const VSL = {
+      deflator: { label: 'Ginger & ACV Belly Deflator', page: '69' },
+      shots: { label: 'Gut Health Morning Shots', page: '72' }
+    };
+
+    // Page numbers: printed folios of the WW edition (Eliza's doc cites an older edition, +4).
+    const ISSUES = [
+      { id: 'bloating', label: 'Bloating', recipes: [
+        { title: 'Ginger & ACV Belly Deflator', page: 'Page 69', img: './assets/5178869e9808cfa55270a82523e61dde.png', alt: 'Stirring sliced ginger into apple cider vinegar and warm water',
+          body: 'If you have ever wondered what happens when you pour apple cider vinegar over ginger, this is exactly what you get: Ginger & ACV Belly Deflator, a simple homemade drink for after-meal digestive comfort.' },
+        { title: 'You’ve Been Drinking Milk Wrong', page: 'Black Milk · Page 79', img: './assets/8abdbb1e934b5d8fc3aba8aa60f7c64f.png', alt: 'A glass of Black Milk topped with nutmeg',
+          body: 'This black drink is built on two key ingredients: non-dairy milk and activated charcoal, with vanilla, honey and nutmeg for flavor. The charcoal gives it its striking color and has been traditionally used for occasional bloating and stomach discomfort.' }
+      ] },
+      { id: 'gas', label: 'Gas', recipes: [
+        { title: 'Triple Comfort Belly Tea', page: 'Page 74', img: './assets/bd0b744651cccdde44d23f0f7c0f3711.png', alt: 'A cup of herbal tea',
+          body: 'If you often feel uncomfortably full after meals and find yourself passing more gas than usual, it may be time to pay closer attention to what leaves your gut feeling that way.\n\nThis powerful tea contains marshmallow root and slippery elm, which release a soft, slippery plant fiber called mucilage when mixed with water. Both plants have long been used for mild gut discomfort, making this a soothing cup to reach for on gassy days.' },
+        { title: 'The Secret Remedy the Amish Use When Their Stomach Feels Off', page: '[Book page: confirm the recipe]', img: './assets/33f4c40b23d15218afb2263cab240a1f.jpg', alt: 'A jar of lemon slices steeping in an amber liquid',
+          body: 'This recipe may very well be one of the many that are part of the secret behind the Amish people’s remarkable gut health.\n\nThis is an old-fashioned, homemade gut remedy that you can use for those days when your belly feels bloated and you keep passing gas after meals.\n\nIt’s very easy to make, and you only need two ingredients that you probably already have at home!' }
+      ] },
+      { id: 'sluggish', label: 'Sluggish digestion', recipes: [
+        { title: 'Gut Health Morning Shots', page: 'Page 72', img: './assets/fa035dad672058d2282c31ed353fa62c.jpg', alt: 'Adding chia seeds to a jar of citrus and ginger',
+          body: 'Have you ever felt like your digestion needs a little help getting started? These Gut Health Morning Shots combine fresh ginger, turmeric, chia seeds, lemon, orange, apple cider vinegar, black pepper, and honey. Ginger has traditionally been used to ease an unsettled stomach, while chia seeds absorb water and form a soft gel.\n\nThat gel comes from soluble fiber, which helps hold water as it moves through your digestive tract. So next time you wake up with sluggish digestion, open your book and prepare these Gut Health Morning Shots.' },
+        { title: 'LaxTea', page: 'Page 77', img: './assets/3da1f2d22abe156032f318b8e91986df.jpg', alt: 'Stirring psyllium into a cup of herbal tea',
+          body: 'If you’re feeling backed up, you may need a little help getting things moving. Otherwise, that heavy, bloated feeling can linger, and even a simple trip to the bathroom can turn into a painful struggle.\n\nThe senna inside this recipe encourages your bowels to move, while psyllium acts like a sponge, holding onto water and adding bulk to help stool pass more easily. Together, they can help you feel more regular and comfortable.' }
+      ] },
+      { id: 'upset', label: 'Upset stomach', recipes: [
+        { title: 'Soothing Syrup for an Upset Stomach', page: 'Page 62', img: './assets/2b7f30fb98f54cf4da5493fd3ffe7187.png', alt: 'Ginger and star anise simmering in a saucepan',
+          body: 'Chances are you have ginger in your kitchen right now, but you’ve probably never used it like this! Slice it, simmer it in water, then stir in honey to make a warming syrup.\n\nGinger contains compounds called gingerols, some of which get extracted into the water as it simmers. So the next time your stomach feels upset, you can make this recipe!' },
+        { title: 'What Happens When You Put Peppermint Oil in Your Belly Button?', page: 'Peppermint oil: Belly Rescue Oil · Page 67', img: './assets/0301a050b6593d373eb8f5a2de454e4f.jpg', alt: 'A drop of oil on a belly button',
+          body: 'You can use a pad and pour some peppermint oil over it. You apply it to your belly button and leave it on for two to three hours. Make the peppermint oil itself with the book’s Belly Rescue Oil recipe.' }
+      ] },
+      { id: 'nausea', label: 'Nausea', recipes: [
+        { title: 'Lemon and Ginger Nausea Lollipops', page: 'Page 63', img: './assets/c816eadd52fecc1059ac955d6f5ca2a6.png', alt: 'Pouring lollipop syrup into a silicone mould',
+          body: 'If a car ride, boat trip, or ordinary day leaves you feeling queasy, pop one of these in your mouth! The lemon’s sharp, sour taste gets saliva flowing and gives you something fresh to focus on while the unsettled feeling passes.' },
+        { title: 'What Carrots Do to Your Stomach', page: 'After-Meal Cooling Tonic · Page 73', img: './assets/f831b12782d488b7917e15b3986ecf29.jpg', alt: 'Straining carrot juice into a glass',
+          body: 'When managing nausea, the primary dietary goal is avoiding strong odors and complex fats. A carrot juice made with aloe vera and turmeric gives you a fresh option to try when your stomach feels unsettled.' }
+      ] },
+      { id: 'cravings', label: 'Food cravings', recipes: [
+        { title: 'Craving Ease Tea', page: 'Page 90', img: './assets/190f35b44b2f40362e8f81f95a7364ed.png', alt: 'Dried licorice root in a hand',
+          body: 'This has also been called the “GL-Tea”. You can make this when you find yourself eyeing a snack between meals. Give it a try the next time you’re in the mood for something sweet or salty!' },
+        { title: '“Snatched Waist” Capsules', page: 'Page 89', img: './assets/ef9863766f6a1476c749733753f45f33.png', alt: 'Ground cayenne and turmeric in a glass bowl',
+          body: 'One of the plants we will need for this one is cayenne pepper. Cayenne pepper contains capsaicin, a compound believed to increase heat production in the body, which may aid in burning calories.' }
+      ] },
+      { id: 'cleansing', label: 'Natural cleansing support', recipes: [
+        { title: 'Gut Bodyguard', page: 'Page 81', img: './assets/acf1cb3bc830e4b0f43d936821f4aff7.jpg', alt: 'A spoonful of papaya seeds in honey',
+          body: 'If you’ve ever drunk tap water, grabbed a doorknob, played with your cat or dog, or walked barefoot in the grass, you might like this remedy! You need just three ingredients: papaya seeds, honey, and water. This mixture has been traditionally used to help the gut steer clear of any unwanted intruders.' },
+        { title: 'Liver Balance Tincture', page: 'Page 65', img: './assets/559b713e288572a5d061bfbc7f5781cb.png', alt: 'A jar of berries, licorice and ginger steeping',
+          body: 'Your liver does a lot behind the scenes, so it’s easy to overlook! If you’ve been feeling tired for no clear reason, here’s a simple recipe you can make at home.\n\nAdd 2 tablespoons of dried schisandra berries, 1 tablespoon of dried licorice root, and 1 tablespoon of grated ginger to a clean jar. Pour in enough high-proof vodka to fully cover the herbs, leaving about half an inch of space at the top, seal the jar, and leave it in a cool, dark place for 4–6 weeks, shaking it every few days. Then strain the liquid into a dark glass bottle and label it with the date.\n\nIt’s made with alcohol instead of water because alcohol can draw out some plant compounds that water alone may miss. It also keeps far longer than a tea, which you should drink on the spot.' }
+      ] }
+    ];
+
+    const FAQ = [
+      { q: 'How Does This Actually Work?', a: 'The book is very easy to use! All 250 remedies are arranged on shelves by body system, each labeled with the page where you’ll find them. Say your last meal is still sitting heavy in your stomach. You go to the Digestive System shelf (page 59), choose a remedy and turn to its page. There you’ll find the full recipe with color photos, exact measurements and clear step-by-step instructions, so you can make it at home in just a few minutes.' },
+      { q: 'What Can This Help With?', a: 'Everyday digestive discomforts, like bloating and gas, that heavy feeling after a big meal, occasional heartburn, a “sluggish” gut and the odd upset stomach. Inside you’ll find remedies like the Ginger and ACV Belly Deflator, the After-Dinner Digestive Tonic, the Chamomile and Lemon Balm Calming Infusion and the Bloat Pop Extract.' },
+      { q: 'Why Haven’t Other Home Remedies Seemed to Make a Difference?', a: 'Often, the issue isn’t the remedy itself but how well it fits the kind of discomfort you’re feeling. Digestive troubles can show up in many different ways. The bloated, heavy feeling after a big dinner might be different from a burning chest at night or a gut that feels slow and “stuck” for days. That’s why this book organizes its remedies by the type of discomfort, so choosing a remedy suited to how your body actually feels may help you get more out of the natural approaches you try.' },
+      { q: 'Do I Need Special Ingredients Or Supplements?', a: 'No. Most remedies use things like ginger, turmeric, pineapple, cabbage, and common herbs you can either get from the supermarket or from your backyard. You don’t need to buy anything rare or expensive.' },
+      { q: 'Is This Safe If I Take Medication?', a: 'Every remedy in the book comes with its own notes, covering cautions such as possible side effects, who should avoid it and when to talk to a healthcare provider first, plus a dosage section. If you take medication, check with your doctor or pharmacist before trying a new remedy.' },
+      { q: 'What If The Book Isn’t Right For Me?', a: 'That’s exactly why every copy comes with a 60-day money-back guarantee. Take your time exploring the book, try a few of the recipes and see whether it’s a good fit for your home. If you’re not completely happy with it for any reason, simply send it back for a full refund. No questions.' },
+      { q: 'How Soon Will My Book Ship?', a: 'We’ll ship your book from our facility within 24–48 hours of placing your order. Once it’s on its way, you’ll receive tracking details to your email address so you can follow its journey to your door.' },
+      { q: 'Can I Get a Refund?', a: 'Yes. You have 60 days to explore the book and try the remedies that interest you. If it isn’t right for you, send it back within that time for a full refund. No questions asked.' }
+    ];
+    const openFaq = st.faq ?? 0;
+
+    return {
+      cta:'align-self: center; background: #1F6F2B; color: #FFE45C; font-weight: 800; font-size: 22px; text-transform: uppercase; letter-spacing: 0.02em; text-decoration: none; padding: 18px 40px; border-radius: 999px; min-height: 60px; box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center; text-align: center; box-shadow: 0 6px 0 #124A1B;',
+      vsl: VSL[vslId],
+      sections: order.map((k) => ({
+        isHero: k === 'hero', isCred: k === 'cred', isVideoT: k === 'videoT', isMenu: k === 'menu', isMore: k === 'more',
+        isInside: k === 'inside', isNotice: k === 'notice', isFb: k === 'fb', isHome: k === 'home', isAmazon: k === 'amazon',
+        isBonuses: k === 'bonuses', isOffer: k === 'offer', isGuarantee: k === 'guarantee', isAuthor: k === 'author', isFaq: k === 'faq'
+      })),
+      usps: [
+        { lead: 'Remedies for Digestive Comfort', rest: 'Discover the Belly Deflator and dozens of other powerful recipes for smoother digestion, regularity, and everyday gut comfort.' },
+        { lead: 'For Gas, Bloating, and Sluggish Digestion', rest: 'Explore recipes traditionally used to help you feel more at ease after meals.' },
+        { lead: 'Easy to Make at Home', rest: 'Using common kitchen ingredients like cabbage, ginger, and lemon.' },
+        { lead: 'Complete Step-by-Step Recipes', rest: 'With clear instructions, color pictures, and serving sizes.' }
+      ],
+      four: [{ k: 1 }, { k: 2 }, { k: 3 }, { k: 4 }],
+      six: [{ k: 1 }, { k: 2 }, { k: 3 }, { k: 4 }, { k: 5 }, { k: 6 }],
+      issues: ISSUES.map((i) => Object.assign({ href: '#issue-' + i.id }, i, { id: 'issue-' + i.id })),
+      more: ['Amish “Rusty Joints” Drops', 'Three-Root Firewall Tea', 'Ear-Ringing Parsley Patches', 'Germ Season Crushing Honey', 'Histamine Balance Tea', 'Clear-Toe Powder',
+        'Brainy ’Shroom Elixir', 'ProctoCooling Oil', 'Triple-Comfort Poultice', 'Tender Spray for Ear Troubles', 'Bump & Scrape Ointment', 'Mood Lift Tincture',
+        'Rough-Skin Rescue Cream', 'Bloat Pop Extract', 'The “Bump-Off” Herbal Spray', 'Deep Nourishing “Bone” Juice', 'Herbal Balm for Cold Sores', 'Deep-Drain Tonic',
+        'Tension-Melt Elixir', 'Deep-Joint Comfort Cream', 'LaxTea', 'Moon Tea', 'Stone Broom Juice', 'After-Meal Cooling Tonic'],
+      features: ['Large Images of the Remedy', 'Scientific Names of the Herbs', 'General Medicinal Uses of the Remedy', 'Close-Ups of the Remedy and Plants Included',
+        'Information on the Tools and Ingredients Needed', 'Nicole Apelian’s Personal Tips and Tricks for Using the Remedy', 'Detailed Step-by-Step Instructions',
+        'Guidance on How to Use the Remedy', 'Warnings to Keep in Mind', 'Serving Size Instructions'].map((label, i) => ({ n: String(i + 1), label })),
+      shelf: [
+        { title: '3-Ingredient Digestive', page: '60' }, { title: 'Gut Lining Supportive Rejuvelac', page: '71' },
+        { title: 'Deep Gut Sweep for Unwanted Guests', page: '76' }, { title: 'Homemade Colon Refresh Shots', page: '78' },
+        { title: 'Deep Belly Comfort Infusion', page: '80' }, { title: 'Fermented Cabbage Juice', page: '82' },
+        { title: 'Bloat Pop Extract', page: '83' }, { title: 'Slim-T', page: '87' }
+      ],
+      timeline: [
+        { when: 'First Few Days', text: 'You find your way around the Digestive System shelf and make your first remedy.' },
+        { when: 'First 2–3 Weeks', text: 'You’ve tried a few recipes and are starting to learn which ones you like best for bloating, heavy meals or an unsettled stomach.' },
+        { when: 'First 1–2 Months', text: 'You’ve found the remedies you prefer and are getting the hang of making them yourself.' },
+        { when: 'Long-Term', text: 'You keep a few remedies on hand for heavy meals and unsettled days, so caring for your gut feels easier to manage.' }
+      ],
+      homeRows: ['Recipes from a PhD herbalist', 'Backed by centuries of use', 'Made fresh by you', 'Saves you money', 'Covers the whole family', '250 recipes in one book',
+        'You decide what goes into your body', 'Easy, even for beginners', 'Makes you more self-reliant', 'Recipes you can pass down', '60-day money-back guarantee'],
+      bonuses: [
+        { title: 'The Lost Skills of the Great Depression', src: './assets/2125d5849cf3534477481c8a33d6a008.png', ratio: '450 / 594', lead: '',
+          text: 'The first one you’ll receive is The Lost Skills of the Great Depression. Just like traditional home remedies were forgotten with the rise of modern pharmaceuticals, so were many other skills of our grandparents and great-grandparents. It’s the skills of the Great Depression that will be in great need in the next economic crisis. The only problem is that people don’t know them anymore. Among the many things you’ll discover inside this exclusive gift are the “superweed” that saved communities during the Great Depression, the forgotten gardening techniques our grandparents used to grow food in less than three months, and the Great Depression foods we might be eating again soon, just to name a few.' },
+        { title: 'Healing Yourself at Home with Household Items', src: './assets/037f89bb32e250dadc3c3d1e785f1123.png', ratio: '450 / 600', lead: '',
+          text: 'The second gift you’ll get is Healing Yourself with Household Items. Sometimes you don’t even need to make a natural remedy or go to the store since there are some quick fixes you can make using whatever you have in your house right now. In this guide, you’ll discover clever uses for everyday household items, from duct tape for rough skin spots and honey for skin care to yogurt for delicate skin, sugar for those stubborn “hics,” mouthwash for fresher-feeling feet, oatmeal for dry, irritated skin, and much more.' },
+        { title: 'DIY Projects for a World Without Electricity', src: './assets/22373123b0f7986d368ea17b1c3741d9.png', ratio: '450 / 600', lead: '',
+          text: 'My third gift to you is DIY Projects for a World Without Electricity. If you want to live off the grid or survive a long-term blackout or an EMP, all you have to do is look at what people did 150 years ago, when there was no electricity. Inside you’re going to discover information like the 100-year-old preservation method that will keep your food supply fresh without refrigeration, why you should bury a trash can in your backyard, how to make a rainwater catchment system to harvest enough water for two months, and how to make water out of thin air… just to name a few.' },
+        { title: 'Herbal Medicine Video Collection', src: './assets/77afed19f85ba3963ef33d84dce168e2.png', ratio: '512 / 280',
+          lead: 'For the first few people who purchase The Forgotten Home Apothecary, I have a special surprise that will help you on your journey to health and wellness.',
+          text: 'If you hurry, you’ll also receive the Herbal Medicine Video Collection. Inside you’ll discover step-by-step recipes for the most requested and appreciated remedies from the book. This way you can just follow the author along and create the remedies you need. You’re going to make them together. It will be fun!' }
+      ],
+      offerRows: [
+        { item: 'The Forgotten Home Apothecary', kind: '(physical book)', value: '$37' },
+        { item: 'The Lost Skills of the Great Depression', kind: '(digital)', value: '$29' },
+        { item: 'DIY Projects for a World Without Electricity', kind: '(digital)', value: '$29' },
+        { item: 'Healing Yourself at Home with Household Items', kind: '(digital)', value: '$29' },
+        { item: 'Herbal Medicine Video Collection', kind: '', value: '$49' },
+        { item: 'One-on-one 24/7 support', kind: '', value: 'included' },
+        { item: 'Keep-the-book 60-day money-back guarantee', kind: '', value: 'included' }
+      ],
+      authorParas: [
+        'Dr. Nicole Apelian is an herbalist, a mother, a survival skills instructor, and a biologist.',
+        'An unexpected diagnosis of a life-threatening health issue in 2000 led Nicole to apply her research skills towards her own personal wellness.',
+        'Through changes in her lifestyle, and using her own remedies, Nicole went from bedridden to being fully alive and from surviving to thriving. Her personal journey helped shape the approach to everyday wellness she shares in this book, including caring for your digestive health.',
+        'And in 2015 she was among the first women to be selected for the History Channel’s TV show Alone. She then went on to survive for 57 days straight alone in the wild.',
+        'Natural remedies have offered her a second chance at life, and she believes others dealing with everyday gut issues deserve to discover what may work for them.',
+        'This became her life’s mission and the main reason for writing this book.',
+        'In it, she poured over 30 years of plant knowledge and her first-hand experiences of making her own poultices, tinctures, decoctions, salves, syrups, infused oils, and other herbal remedies for everyday gut issues and digestive well-being.'
+      ],
+      faq: FAQ.map((f, i) => ({
+        q: f.q, a: f.a, open: i === openFaq, sign: i === openFaq ? '−' : '+',
+        toggle: () => this.setState({ faq: i === openFaq ? -1 : i })
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>
